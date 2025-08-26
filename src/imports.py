@@ -3,8 +3,9 @@ import sys
 import keyword
 import random
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 import json
+import re
 
 ## Custom package
 from package.mathoperations import add, subtract, multiply, divide
@@ -31,10 +32,13 @@ if not os.path.exists('test_directory'):
     file.close()
 if os.path.exists('test_directory/test_file.txt'):
     os.remove('test_directory/test_file.txt')  # Remove the file
+print(os.listdir('.'))  # List files and directories in the current directory
 os.rmdir('test_directory')  # Remove the directory
 
 
 print(datetime.now().timestamp())  # Current timestamp
+print(datetime.now())
+print(datetime.now() + timedelta(days=1))  # Current time + 1 day
 
 ## Data Serialization
 
@@ -53,3 +57,8 @@ print(type(json_string))
 data = json.loads(json_string)
 print(data)
 print(type(data))
+
+pattern = r'\d+'
+text = 'There are 123 apples'
+matches = re.search(pattern, text)
+print(matches.group())  # Output: 123
