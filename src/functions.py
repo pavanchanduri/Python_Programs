@@ -31,4 +31,14 @@ print(add(20))
 positional_arguments(1,2,3,4,5,"Test String")
 keyword_arguments(name="John Doe", age="32", city="Hyderabad")
 print(return_multiplevalues())
-    
+
+def find_factorial(n):
+    if n==0:
+        return 1
+    else:
+        return n * find_factorial(n-1)
+
+result = find_factorial(100)
+# Split the result into a list of its digits
+digits_list = [int(d) for d in str(result)]
+print(digits_list)
